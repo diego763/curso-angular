@@ -12,7 +12,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{region.nombre}}</h5>
                             <p class="card-text">Lat: {{region.lat}} y Lon: {{region.lng}}</p>
-                            <a href="#" class="btn btn-primary" (click)="mostrarProvincias(region)">Mostrar Provincias</a>
+                            <button class="btn btn-primary" (click)="mostrarProvincias(region)">Mostrar Provincias</button>
                         </div>
                     </div>
                 </div>
@@ -31,5 +31,16 @@
         <!-- TODO: TAREA => Imprimiar una lista de provincias de la región clickeada. Como lista o similar al card de regiones  -->
         <!-- https://apis.digital.gob.cl/dpa/regiones/{codigo}/provincias -->
         <!-- {codigo}: Código región -->
+        <div *ngIf="cargandoProvincias">Cargando provincias...</div>
+        <div class="row">
+            <div *ngFor="let provincia of provincias" class="clase-provincia col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{provincia.nombre}}</h5>
+                        <p class="card-text">Lat: {{provincia.lat}} y Lon: {{provincia.lng}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

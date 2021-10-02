@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Provincia } from './interfaces/provincia.interface';
 import { Region } from './interfaces/region.interface';
 
 @Component({
@@ -12,8 +13,10 @@ export class ListaRegionesComponent implements OnInit {
 
   titulo: string = 'Lista regiones Chile';
   cargandoRegiones: boolean = false
+  cargandoProvincias: boolean = false
 
   regiones: Region[] = [];
+  provincias: Provincia[] = [];
 
   regionClickeada?: Region = undefined;
 
@@ -63,9 +66,19 @@ export class ListaRegionesComponent implements OnInit {
   }
 
   mostrarProvincias(region: Region) {
-    console.log('mostrar Provincias');
-    console.log(region.nombre);
-    this.regionClickeada = region;
+    // console.log('mostrar Provincias');
+    // console.log(region.nombre);
+
+    this.regionClickeada    = region;
+    let apiProvincias       = environment.apiGobierno;
+    apiProvincias           = `${apiProvincias}/${region.codigo}/provincias`;
+    this.cargandoProvincias = true;
+
+    this.http.get<Provincia[]>(apiProvincias).subscribe((respuesta) => {
+      this.provincias = respuesta;
+      this.cargandoProvincias = false;
+    });
   }
+
 
 }
