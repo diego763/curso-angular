@@ -1,8 +1,9 @@
 import { Ave } from './data/lista-ave.interface';
 import { environment } from './../../../environments/environment';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CargaDetalleAveComponent } from '../carga-detalle-ave/carga-detalle-ave.component';
+import { ListaAvesItemComponent } from '../lista-aves-item/lista-aves-item.component';
 
 @Component({
   selector: 'app-lista-aves',
@@ -18,7 +19,8 @@ export class ListaAvesComponent implements OnInit {
   aves: Ave[] = [];
   avesFiltradas: Ave[] = [];
 
-  aveClickeada!: Ave;
+  aveClickeada !: Ave;
+
 
   @ViewChild('cargaDetalleAve', { static: false })
   cargaDetalleAveComponent!: CargaDetalleAveComponent;
@@ -58,7 +60,7 @@ export class ListaAvesComponent implements OnInit {
     });
   }
 
-  asignarAveClickeada(ave: Ave) {
+  handleAveClickeada(ave : Ave){
     this.aveClickeada = ave;
   }
 

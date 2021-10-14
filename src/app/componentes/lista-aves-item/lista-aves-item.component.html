@@ -1,0 +1,6 @@
+<div *ngIf="cargandoAves; else avesCargadas">
+    Cargando Aves...
+</div>
+<ng-template #avesCargadas>
+    <app-detalle-lista-ave *ngFor="let ave of avesFiltradas" [detalle]="ave" (detalleClickeado)="asignarAveClickeada($event)"></app-detalle-lista-ave>
+</ng-template>

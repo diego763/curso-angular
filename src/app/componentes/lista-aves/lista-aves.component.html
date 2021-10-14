@@ -21,19 +21,7 @@
     <div class="row">
         <div class='col-6'>
             <!-- TODO: TAREA 2: Convertir en componente | Hasta el Viernes 15 -->
-            <div *ngIf="cargandoAves; else avesCargadas">
-                Cargando Aves...
-            </div>
-            <ng-template #avesCargadas>
-                <app-detalle-lista-ave *ngFor="let ave of avesFiltradas" [detalle]="ave" (detalleClickeado)="asignarAveClickeada($event)"></app-detalle-lista-ave>
-                <!-- <div class="card mb-1" *ngFor="let ave of avesFiltradas">
-                    <img class="card-img-top" [src]="ave.images.main">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ave.name.spanish}}</h5>
-                        <a href="#" class="btn btn-primary">Detalle</a>
-                    </div>
-                </div> -->
-            </ng-template>
+            <app-lista-aves-item [cargandoAves]="cargandoAves" [avesFiltradas]="avesFiltradas" (aveClickeadaCallback)="handleAveClickeada($event)"></app-lista-aves-item>
             <!-- FIN TAREA 2 -->
         </div>
         <div class="col-6">
