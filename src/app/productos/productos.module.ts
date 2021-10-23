@@ -6,6 +6,7 @@ import { DetalleProductoComponent } from './componentes/detalle-producto/detalle
 import { CrearProductoComponent } from './componentes/crear-producto/crear-producto.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EditarProductoModule } from './editar-producto/editar-producto.module';
 
 
 
@@ -23,6 +24,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ReactiveFormsModule,
     // Fin para usar los formularios
     CategoriasModule,
+    EditarProductoModule,
   ],
   exports: [
     DetalleProductoComponent,

@@ -1,0 +1,86 @@
+<p>editar-producto works!</p>
+
+<!--TODO
+    -falta pasarle el id del producto a la vista
+    -falta agregar rating de producto
+    -falta enviar a la api de edición
+    -falta ver por que no se activa el boton de editar
+-->
+
+<form [formGroup]="form">
+    <!-- Título Producto -->
+    <div>
+        <label class="form-label">Título Producto</label>
+        <input type="text" class="form-control" placeholder="titulo producto" formControlName="title">
+    </div>
+    <div class="text-danger" *ngIf="form.get('title')!.dirty && form.get('title')!.errors">
+        Campo requerido, no puede superar los 10 caracteres
+    </div>
+    <!-- Descripción Producto -->
+    <div>
+        <label class="form-label">Descrición Producto</label>
+        <input type="text" class="form-control" placeholder="descripción producto" formControlName="description">
+    </div>
+    <div class="text-danger" *ngIf="form.get('description')!.dirty && form.get('description')!.errors">
+        Campo requerido, no puede superar los 200 caracteres
+    </div>
+    <!-- Imagen Producto -->
+    <div>
+        <label class="form-label">Url Producto</label>
+        <input type="text" class="form-control" placeholder="https://..." formControlName="image">
+    </div>
+    <div class="text-danger" *ngIf="form.get('image')!.dirty && form.get('image')!.errors">
+        Campo requerido, no puede superar los 200 caracteres
+    </div>
+    <!-- Categoría Producto -->
+    <div>
+        <label class="form-label">Categoría Producto</label>
+        <input type="text" class="form-control" placeholder="Ej.: electrónica" formControlName="category">
+    </div>
+    <div class="text-danger" *ngIf="form.get('category')!.dirty && form.get('category')!.errors">
+        Campo requerido, no puede superar los 40 caracteres
+    </div>
+    <!-- Precio Producto -->
+    <div>
+        <label class="form-label">Precio Producto ($)</label>
+        <input type="number" class="form-control" placeholder="1" formControlName="price">
+    </div>
+    <div class="text-danger" *ngIf="form.get('price')!.dirty && form.get('price')!.errors">
+        Campo requerido, Entre $1 - $10.000.000
+    </div>
+
+    <!-- rating count Producto -->
+    <div>
+        <label class="form-label">Rating Count Producto</label>
+        <input type="number" class="form-control" placeholder="1" formControlName="ratingCount">
+    </div>
+    <div class="text-danger" *ngIf="form.get('ratingCount')!.dirty && form.get('ratingCount')!.errors">
+        Campo requerido, Entre 1 - 10000000
+    </div>
+
+    <!-- rating rate -->
+    <div>
+        <label class="form-label">Rating Rate</label>
+        <select class="form-control" aria-label="Default select example" formControlName="ratingRate">
+            <option *ngFor="let valor of valoresRatingRate" [value]="valor.id">{{valor.label}}</option>
+        </select>
+    </div>
+    <div class="text-danger" *ngIf="form.get('ratingRate')!.dirty && form.get('ratingRate')!.errors">
+        Campo requerido
+    </div>
+
+    <input type="hidden" class="form-control" formControlName="id">
+
+</form>
+
+<div class="d-grid gap-2 mt-4">
+    <button type="button" class="btn btn-primary btn-block" (click)="guardarProducto()" [disabled]="form.invalid || form.disabled">
+      <fa-icon [icon]="['fas', 'spinner']" [spin]="true" *ngIf="form.disabled"></fa-icon>
+      <span *ngIf="!form.disabled">Guardar</span>
+    </button>
+</div>
+
+<!-- 
+<pre>
+  {{form.value | json}}
+</pre>-->

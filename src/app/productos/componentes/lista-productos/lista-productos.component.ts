@@ -13,6 +13,7 @@ export class ListaProductosComponent implements OnInit {
 
   loading: boolean = true;
   productos: Producto[] = [];
+  producto !: Producto;
 
   constructor(
     private http: HttpClient,
@@ -33,6 +34,16 @@ export class ListaProductosComponent implements OnInit {
   }
 
   abrirModal(content: any) {
+    this.modalService.open(content).result.then((result) => {
+      console.log('result', result);
+    }, (reason) => {
+      console.log('reason', reason);
+      this.cargarProductos();
+    });
+  }
+
+  abrirEditModal(content: any, producto: Producto) {
+    this.producto = producto;
     this.modalService.open(content).result.then((result) => {
       console.log('result', result);
     }, (reason) => {

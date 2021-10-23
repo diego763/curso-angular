@@ -22,6 +22,22 @@
     </div>
 </ng-template>
 
+<!-- Modal -->
+<ng-template #editProductoModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Editar Producto</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.close('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <app-editar-producto [producto]="producto"></app-editar-producto>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Cross click')">Cerrar</button>
+    </div>
+</ng-template>
+
 
 <div *ngIf="loading; else mostrarProductos">
     Cargando productos...
@@ -65,7 +81,7 @@
                         <!-- El rating rate | select de 1 - 5, (1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5 y 5)-->
                         <!-- --- Al abrir un producto, por ejemplo "Mens Casual Slim Fit", 
                             en el input del titulo debiese aparecer "Mens Casual Slim Fit", y así con los otros inputs -->
-                        <button type="button" class="btn btn-success mx-2">
+                        <button type="button" class="btn btn-success mx-2" (click)="abrirEditModal(editProductoModal, producto)">
                             Editar
                         </button>
                     </td>
