@@ -43,11 +43,11 @@ export class EditarProductoComponent implements OnInit {
     console.log(this.producto, Math.round(this.producto.rating.rate))
     this.form = this.fb.group({
       id: [this.producto.id, [Validators.max(99999999), Validators.min(1)]],
-      title: [this.producto.title, [Validators.required, Validators.maxLength(200)]],
+      title: [this.producto.title, [Validators.required, Validators.maxLength(255)]],
       price: [this.producto.price, [Validators.required, Validators.min(1), Validators.max(10000000)]],
       ratingCount: [this.producto.rating.count, [Validators.required, Validators.min(1), Validators.max(10000000)]],
       ratingRate: [Math.round(this.producto.rating.rate), [Validators.required]],
-      description: [this.producto.description, [Validators.required, Validators.maxLength(200)]],
+      description: [this.producto.description, [Validators.required, Validators.maxLength(2000)]],
       image: [this.producto.image, [Validators.required, Validators.maxLength(200)]],
       category: [this.producto.category, [Validators.required, Validators.maxLength(40)]]
     });
@@ -58,13 +58,12 @@ export class EditarProductoComponent implements OnInit {
       return;
     }
     this.form.disable();
-    this.http.post<Producto>(environment.apiStore + 'products', this.form.value).subscribe(response => {
+    this.http.put<Producto>(environment.apiStore + 'products/'+this.form.value.id, this.form.value).subscribe(response => {
         this.form.enable();
         this.form.reset();
         // this.productoCreado.emit(response);
         this.activeModal.dismissAll(response);
     });
-    console.log(this.form);
   }
 
 }
