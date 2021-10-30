@@ -5,7 +5,7 @@
         <!-- Solo agrega 1 -->
         <button href="#" class="btn btn-primary" (click)="agregarAlCarro()">Agregar al carro</button>
         <!-- Solo mostrar estos dos si el producto YA ESTA AGREGADO -->
-        <button href="#" class="btn btn-danger" (click)="quitarUnAUnidadDelCarro()">Quitar 1 unidad del carro</button>
-        <button href="#" class="btn btn-danger" (click)="quitarLineaDelCarro()">Quitar línea del carro</button>
+        <button *ngIf="productoEnCarro" href="#" class="btn btn-danger" (click)="quitarUnAUnidadDelCarro()">Quitar 1 unidad del carro</button>
+        <button *ngIf="productoEnCarro" href="#" class="btn btn-danger" (click)="quitarLineaDelCarro()">Quitar línea del carro</button>
     </div>
 </div>
