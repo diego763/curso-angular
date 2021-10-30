@@ -26,6 +26,10 @@ export const MOD_PUBLICO_ROUTES: Route[] = [
         loadChildren: () => import('./paginas/error-not-found/error-not-found.module').then(m => m.ErrorNotFoundModule)
       },
       {
+        path: 'registro',
+        loadChildren: () => import('./paginas/registro/registro.module').then(m => m.RegistroModule)
+      },
+      {
         path: '**',
         pathMatch: 'full',
         redirectTo: 'inicio'

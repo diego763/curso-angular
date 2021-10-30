@@ -9,8 +9,12 @@
             <li class="nav-item active">
                 <a class="nav-link" [routerLink]="'/modulo-usuario/inicio'">Inicio</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" [routerLink]="'/modulo-usuario/lista-usuario'">Usuarios</a>
+            <li ngbDropdown class="d-inline-block">
+                <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>Usuarios</a>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button ngbDropdownItem [routerLink]="'/modulo-usuario/lista-usuario/lista'">Lista usuarios</button>
+                    <button ngbDropdownItem [routerLink]="'/modulo-usuario/lista-usuario/crear'">Crear usuario</button>
+                </div>
             </li>
             <li ngbDropdown class="d-inline-block">
                 <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>Productos</a>
