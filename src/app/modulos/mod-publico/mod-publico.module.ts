@@ -7,6 +7,7 @@ import { InicioComponent } from './paginas/inicio/inicio.component';
 import { ContactoComponent } from './paginas/contacto/contacto.component';
 import { RouterModule } from '@angular/router';
 import { MOD_PUBLICO_ROUTES } from './mod-publico.routing';
+import { SecondsToModule } from 'src/app/pipes/secondsTo/seconds-to.module';
 
 
 
@@ -20,6 +21,7 @@ import { MOD_PUBLICO_ROUTES } from './mod-publico.routing';
     CommonModule,
     NavegacionPrincipalModule,
     RutModule,
+    SecondsToModule,
     RouterModule.forChild(MOD_PUBLICO_ROUTES)
   ]
 })

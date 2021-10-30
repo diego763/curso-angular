@@ -13,3 +13,12 @@
 <p>{{ahora | date: 'dd'}}</p>
 <p>{{numero | number: '1.0-0'}}</p>
 <p>{{usuario | json}}</p>
+
+<hr>
+<h4>segundos</h4>
+<p>segundos: 3120; a:horas; formatoretorno: number ----> {{3120 | secondsTo: 'hours' : 'number'}}</p>
+<p>segundos: 3120; a:minutos; formatoretorno: number ----> {{3120 | secondsTo: 'minutes' : 'number'}}</p>
+<p>segundos: 3400; a:minutos; formatoretorno: number ----> {{3400 | secondsTo: 'minutes' : 'number'}}</p>
+<p>segundos: 500; a:minutos; formato retorno: string ----> {{500 | secondsTo: 'minutes' : 'string'}}</p>
+<p>segundos: 120; a:minutos; formato retorno: number ----> {{120 | secondsTo: 'minutes' : 'number'}}</p>
+<p>segundos: 6020; a:horas; formato retorno: string ----> {{6020 | secondsTo: 'hours' : 'string'}}</p>
