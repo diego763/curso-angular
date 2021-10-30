@@ -9,7 +9,7 @@ export class InputTextToLowerCaseDirective {
 
   @HostListener('window:keyup', ['$event'])
   keyUp($event: any) {
-    console.log('key.up', $event.key, $event.target.value, $event.target.value.toLowerCase());
+    // console.log('key.up', $event.key, $event.target.value, $event.target.value.toLowerCase());
     this.elementRef.nativeElement.value = $event.target.value.toLowerCase();
   }
 
