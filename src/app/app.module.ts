@@ -19,7 +19,7 @@ registerLocaleData(localeEs);
   declarations: [
     AppComponent,
     InicioComponent,
-    ContactoComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,
